@@ -18,6 +18,7 @@ import store from "./store";
 import Offers from "./pages/Offers";
 import OfferDetail from "./pages/OfferDetail";
 import MyOfferDetails from "./pages/MyOfferDetails";
+
 import { useDispatch } from "react-redux";
 import { getAllProducts } from "./actions/productActions";
 
@@ -35,8 +36,8 @@ function App() {
       <div className="app">
         <Switch>
           <Route path="/" exact component={Home} />
-          <Route path="/search/:keyword" component={Home} />
-          <Route path="/product/:productId" component={ProductDetail} />
+          <Route path="/search/:keyword" exact component={Home} />
+          <Route path="/product/:productId" exact component={ProductDetail} />
           <Route path="/profile/:myId" exact component={Profile} />
           <Route path="/edit-profile" exact component={EditProfile} />
           <Route
@@ -44,14 +45,18 @@ function App() {
             exact
             component={UsersProfile}
           />
-          <Route path="/login" component={Login} />
-          <Route path="/register" component={Register} />
-          <Route path="/post" component={Post} />
-          <Route path="/edit/product/:productId" component={EditProduct} />
-          <Route path="/chat" component={Chat} />
-          <Route path="/offers" component={Offers} />
-          <Route path="/offer/my/:id" component={MyOfferDetails} />
-          <Route path="/offer/:id" component={OfferDetail} />
+          <Route path="/login" exact component={Login} />
+          <Route path="/register" exact component={Register} />
+          <Route path="/post" exact component={Post} />
+          <Route
+            path="/edit/product/:productId"
+            exact
+            component={EditProduct}
+          />
+          <Route path="/chat" exact component={Chat} />
+          <Route path="/offers" exact component={Offers} />
+          <Route path="/offer/my/:id" exact component={MyOfferDetails} />
+          <Route path="/offer/:id" exact component={OfferDetail} />
         </Switch>
       </div>
       <Footer />
